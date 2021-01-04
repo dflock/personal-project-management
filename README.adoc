@@ -1,5 +1,9 @@
-# New Project Script
+# Personal Project Management
 :author: Duncan Lock
+
+This repo contains scripts and other things to help manage personal projects.
+
+## New Project Script
 
 Script for creating/scaffolding new personal projects.
 
