@@ -7,7 +7,7 @@ This repo contains scripts and other things to help manage personal projects.
 
 Script for creating/scaffolding new personal projects.
 
-## Requirements
+### Requirements
 
 You need `git` installed. See: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
@@ -19,13 +19,13 @@ $ sudo apt install git
 
 For public projects (the `--public` flag), creating the GitHub repo requires `gh` to be installed & setup - see https://cli.github.com/
 
-## Installation
+### Installation
 
 ```shell
 $ sudo cp new-project.sh /usr/bin/new-project
 ```
 
-## Usage
+### Usage
 
 Create a new project called "test project"
 
