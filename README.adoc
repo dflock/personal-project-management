@@ -1,0 +1,36 @@
+# New Project Script
+:author: Duncan Lock
+
+Script for creating/scaffolding new personal projects.
+
+## Requirements
+
+You need `git` installed. See: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+For Debian/Ubuntu, you can do:
+
+```shell
+$ sudo apt install git
+```
+
+For public projects (the `--public` flag), creating the GitHub repo requires `gh` to be installed & setup - see https://cli.github.com/
+
+## Installation
+
+```shell
+$ sudo cp new-project.sh /usr/bin/new-project
+```
+
+## Usage
+
+Create a new project called "test project"
+
+```shell
+$ new-project.sh test project
+```
+  
+Create a new public project called "test project"
+
+```shell
+$ new-project.sh --public test project
+```
