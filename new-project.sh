@@ -159,6 +159,9 @@ if [ "$script" = true -a ! -f "$new_project_dir/$new_project_slug.sh" ]; then
   chmod u+x "$new_project_dir/$new_project_slug.sh"
 fi
 
+# Create README & github repo, if public
+if [ "$public" = true ]; then
+
 # Add README
 if [ ! -f "$new_project_dir/README.adoc" ]; then
 cat << EOF > "$new_project_dir/README.adoc"
@@ -191,8 +194,6 @@ EOF
 fi
 fi
 
-# Create github repo, if public
-if [ "$public" = true ]; then
   cd "$new_project_dir"
   gh repo create "$new_project_name" --confirm --public
 fi
