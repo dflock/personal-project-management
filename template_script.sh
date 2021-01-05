@@ -64,20 +64,6 @@ function die() {
   exit "$code"
 }
 
-function slugify() {
-  tr -s ' ' | tr ' A-Z' '-a-z' | tr -s '-' | tr -c '[:alnum:][:cntrl:].' '-'
-}
-
-function trim() {
-  # Merge all passed in arguments into $var
-  local var="$*"
-  # remove leading whitespace characters
-  var="${var#"${var%%[![:space:]]*}"}"
-  # remove trailing whitespace characters
-  var="${var%"${var##*[![:space:]]}"}"   
-  printf '%s' "$var"
-}
-
 function parse_params() {
   local param
   while [[ $# -gt 0 ]]; do
