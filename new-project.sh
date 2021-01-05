@@ -10,7 +10,7 @@ set -o errexit   # A sub-process/shell returning non-zero is fatal
 
 function init() {
   readonly script_path="${BASH_SOURCE[0]:-$0}"
-  readonly script_dir="$(dirname "$script_path")"
+  readonly script_dir="$(dirname "$(readlink -f "$script_path")")"
   readonly script_name="$(basename "$script_path")"
 
   public=false
@@ -155,7 +155,7 @@ fi
 
 # Add template/skeleton script
 if [ "$script" = true -a ! -f "$new_project_dir/$new_project_slug.sh" ]; then
-  cp ./template_script.sh "$new_project_dir/$new_project_slug.sh"
+  cp "$script_dir/template_script.sh" "$new_project_dir/$new_project_slug.sh"
   chmod u+x "$new_project_dir/$new_project_slug.sh"
 fi
 
