@@ -195,7 +195,7 @@ fi
 fi
 
   cd "$new_project_dir"
-  gh repo create "$new_project_name" --confirm --public
+  gh repo create "$new_project_slug" --confirm --public
 fi
 
 msg "Project Created: ${bld}$new_project_dir${off}"
