@@ -10,7 +10,7 @@ set -o errexit   # A sub-process/shell returning non-zero is fatal
 
 function init() {
   readonly script_path="${BASH_SOURCE[0]:-$0}"
-  readonly script_dir="$(dirname "$script_path")"
+  readonly script_dir="$(dirname "$(readlink -f "$script_path")")"
   readonly script_name="$(basename "$script_path")"
 
   setup_colors
