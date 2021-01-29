@@ -30,7 +30,7 @@ ${bld}USAGE${off}
 
 ${bld}OPTIONS${off}
   -h, --help       show this help
-  -p, --project    make the project public by creating a Github repository
+  -p, --public     make the project public by creating a Github repository
   -s, --script     include skeleton stuff for a bash script in the project
   -t, --todo       make the project pending, by creating it in the "$HOME/projects/_todo/" folder
 
@@ -50,15 +50,13 @@ EOF
 function setup_colors() {
   if [[ -t 2 ]] && [[ -z "${NO_COLOR-}" ]] && [[ "${TERM-}" != "dumb" ]]; then
     # Control sequences for fancy colours
-    readonly red="$(tput setaf 1 2> /dev/null || true)"
-    readonly grn="$(tput setaf 2 2> /dev/null || true)"
-    readonly ylw="$(tput setaf 3 2> /dev/null || true)"
-    readonly wht="$(tput setaf 7 2> /dev/null || true)"
     readonly gry="$(tput setaf 240 2> /dev/null || true)"
     readonly bld="$(tput bold 2> /dev/null || true)"
     readonly off="$(tput sgr0 2> /dev/null || true)"
   else
-    readonly red='' readonly grn='' readonly ylw='' readonly wht='' readonly gry='' readonly bld='' readonly off=''
+    readonly gry=''
+    readonly bld=''
+    readonly off=''
   fi
 }
 
@@ -110,7 +108,7 @@ function parse_params() {
         ;;
     esac
   done
-  new_project_name=$(trim ${new_project_name:-})
+  new_project_name=$(trim "${new_project_name:-}")
   new_project_slug=$(echo "$new_project_name" | slugify)
   new_project_dir="$HOME/projects/${todo:-}$new_project_slug"
 }
@@ -138,7 +136,7 @@ if [[ $# == 0 ]]; then
 fi
 
 # Get users full name
-user=$(getent passwd $(whoami) | cut -d ':' -f 5 | cut -d ',' -f 1)
+user=$(getent passwd "$(whoami)" | cut -d ':' -f 5 | cut -d ',' -f 1)
 
 # 
 # Make new project, idempotently
