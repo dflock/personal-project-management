@@ -110,7 +110,7 @@ function parse_params() {
   done
   new_project_name=$(trim "${new_project_name:-}")
   new_project_slug=$(echo "$new_project_name" | slugify)
-  new_project_dir="$HOME/projects/${todo:-}$new_project_slug"
+  new_project_dir="$HOME/Projects/${todo:-}$new_project_slug"
 }
 
 init "$@"
